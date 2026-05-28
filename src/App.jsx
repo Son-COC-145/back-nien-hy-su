@@ -18,8 +18,39 @@ import gallery2 from "./assets/gallery-2.png";
 import gallery3 from "./assets/gallery-3.png";
 import gallery4 from "./assets/gallery-4.png";
 
+import section3Bg from "./assets/section3-bg.png";
+import ticketGroup from "./assets/ticket-group.png";
+
 function App() {
   const [zoomImg, setZoomImg] = useState(null);
+
+  const [tickets, setTickets] = useState({
+  khoiLe: 0,
+  thanhLe: 0,
+  vienMan: 0,
+});
+
+const ticketPrices = {
+  khoiLe: 100000,
+  thanhLe: 150000,
+  vienMan: 200000,
+};
+
+const updateTicket = (type, value) => {
+  setTickets((prev) => ({
+    ...prev,
+    [type]: Math.max(0, prev[type] + value),
+  }));
+};
+
+const totalPrice =
+  tickets.khoiLe * ticketPrices.khoiLe +
+  tickets.thanhLe * ticketPrices.thanhLe +
+  tickets.vienMan * ticketPrices.vienMan;
+
+const formatPrice = (price) => {
+  return price.toLocaleString("vi-VN") + "VNĐ";
+};
 
   return (
     <>
@@ -120,7 +151,79 @@ function App() {
           alt=""
         />
       </section>
+
+      <section
+        id="ticket"
+        className="ticket-section"
+        style={{ backgroundImage: `url(${section3Bg})` }}
+      >
+        <img
+          src={ticketGroup}
+          className="ticket-group-img"
+          onClick={() => setZoomImg(ticketGroup)}
+          alt="Bộ vé Bách Niên Hỷ Sự"
+        />
+
+        <TicketCounter
+          className="ticket-khoi-le"
+          label="KHỞI LỄ"
+          quantity={tickets.khoiLe}
+          price={ticketPrices.khoiLe}
+          onMinus={() => updateTicket("khoiLe", -1)}
+          onPlus={() => updateTicket("khoiLe", 1)}
+        />
+
+        <TicketCounter
+          className="ticket-thanh-le"
+          label="THÀNH LỄ"
+          quantity={tickets.thanhLe}
+          price={ticketPrices.thanhLe}
+          onMinus={() => updateTicket("thanhLe", -1)}
+          onPlus={() => updateTicket("thanhLe", 1)}
+        />
+
+        <TicketCounter
+          className="ticket-vien-man"
+          label="VIÊN MÃN"
+          quantity={tickets.vienMan}
+          price={ticketPrices.vienMan}
+          onMinus={() => updateTicket("vienMan", -1)}
+          onPlus={() => updateTicket("vienMan", 1)}
+        />
+
+        <div className="ticket-total-box">
+          <span>TỔNG:</span>
+          <strong>{formatPrice(totalPrice)}</strong>
+          <button onClick={() => alert("Đặt vé thành công!")}>
+            ĐẶT VÉ
+          </button>
+        </div>
+      </section>
     </>
+  );
+}
+
+function TicketCounter({
+  className = "",
+  label,
+  quantity,
+  price,
+  onMinus,
+  onPlus,
+}) {
+  return (
+    <div className={`ticket-counter ${className}`}>
+      <div>
+        <strong>{label}</strong>
+        <span>{price.toLocaleString("vi-VN")}VNĐ</span>
+      </div>
+
+      <div className="ticket-actions">
+        <button onClick={onMinus}>-</button>
+        <span>{quantity}</span>
+        <button onClick={onPlus}>+</button>
+      </div>
+    </div>
   );
 }
 
