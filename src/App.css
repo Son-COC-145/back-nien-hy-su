@@ -127,3 +127,108 @@ body {
     max-height: 92vh;
   }
 }
+
+/* PHẦN 2 */
+
+.exhibition-section {
+  position: relative;
+  width: 100vw;
+  aspect-ratio: 16 / 9;
+
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+/* 4 item phía trên */
+
+.exhibit-item {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.exhibit-item:hover,
+.gallery-img:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 18px rgba(255, 214, 75, 0.45));
+}
+
+.item-hy-phuc {
+  left: 4.2%;
+  top: 22.5%;
+  width: 9.5%;
+}
+
+.item-trau-cau {
+  left: 28%;
+  top: 26%;
+  width: 14.5%;
+}
+
+.item-nghi-le {
+  left: 56.2%;
+  top: 26%;
+  width: 12.5%;
+}
+
+.item-tuong-tac {
+  left: 84.5%;
+  top: 23%;
+  width: 9%;
+}
+
+/* 4 ảnh phía dưới */
+
+.gallery-img {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  object-fit: cover;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.gallery-1 {
+  left: 4.2%;
+  top: 51%;
+  width: 35%;
+  height: 42%;
+}
+
+.gallery-2 {
+  left: 38.4%;
+  top: 51%;
+  width: 36.5%;
+  height: 42%;
+}
+
+.gallery-3 {
+  left: 76.8%;
+  top: 51%;
+  width: 17.8%;
+  height: 19%;
+}
+
+.gallery-4 {
+  left: 76.8%;
+  top: 70.3%;
+  width: 17.8%;
+  height: 22.5%;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .exhibition-section {
+    aspect-ratio: 16 / 9;
+    background-size: 100% 100%;
+  }
+
+  .exhibit-item:hover,
+  .gallery-img:hover {
+    transform: scale(1.02);
+  }
+}
