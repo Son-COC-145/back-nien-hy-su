@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  background: #f6f2aa;
+  font-family: Arial, sans-serif;
+}
+
+.hero-section {
+  position: relative;
+  width: 100vw;
+  aspect-ratio: 16 / 9;
+
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+/* vùng click navbar */
+.nav-click {
+  position: absolute;
+  top: 3.4%;
+  height: 5%;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.book-ticket {
+  left: 47%;
+  width: 8%;
+}
+
+.explore {
+  left: 64%;
+  width: 16%;
+}
+
+.organizer {
+  left: 84%;
+  width: 12%;
+}
+
+/* poster */
+.poster {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.poster:hover {
+  filter: drop-shadow(0 0 18px rgba(198, 28, 34, 0.45));
+}
+
+/* poster 1 */
+.poster-trau-tem {
+  left: 4.2%;
+  top: 20.3%;
+  width: 15.6%;
+}
+
+.poster-trau-tem:hover {
+  transform: scale(1.05);
+}
+
+/* poster 2 */
+.poster-hy-su {
+  left: 21.4%;
+  top: 27.5%;
+  width: 15.6%;
+}
+
+.poster-hy-su:hover {
+  transform: scale(1.05);
+}
+
+/* poster 3 */
+.poster-chi-do {
+  left: 37.7%;
+  top: 35%;
+  width: 15.6%;
+}
+
+.poster-chi-do:hover {
+  transform: scale(1.05);
+}
+
+/* zoom poster */
+.zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(5px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoom-overlay img {
+  max-width: 96vw;
+  max-height: 96vh;
+  object-fit: contain;
+
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.65);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .hero-section {
+    aspect-ratio: 16 / 9;
+    background-size: 100% 100%;
+  }
+
+  .zoom-overlay img {
+    max-width: 94vw;
+    max-height: 92vh;
+  }
+}
