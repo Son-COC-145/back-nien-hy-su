@@ -21,6 +21,8 @@ import gallery4 from "./assets/gallery-4.png";
 import section3Bg from "./assets/section3-bg.png";
 import ticketGroup from "./assets/ticket-group.png";
 
+import footerBg from "./assets/footer-bg.png";
+
 function App() {
   const [zoomImg, setZoomImg] = useState(null);
 
@@ -199,6 +201,60 @@ const formatPrice = (price) => {
           </button>
         </div>
       </section>
+
+      <footer
+        id="organizer"
+        className="footer-section"
+        style={{ backgroundImage: `url(${footerBg})` }}
+      >
+        {/* Trợ giúp */}
+        <button
+          className="footer-click help-booking"
+          onClick={() => alert("Bạn có thể đặt vé bằng cách chọn hạng vé ở mục Đặt vé ngay, tăng số lượng và bấm ĐẶT VÉ.")}
+        />
+
+        <button
+          className="footer-click faq"
+          onClick={() => alert("Câu hỏi thường gặp đang được cập nhật.")}
+        />
+
+        <button
+          className="footer-click guide"
+          onClick={() => alert("Khi đến triển lãm, bạn chỉ cần xuất trình vé điện tử hoặc mã QR để check-in.")}
+        />
+
+        {/* Liên hệ */}
+        <a
+          className="footer-click email-1"
+          href="mailto:info@emeraldaresort.com"
+        />
+
+        <a
+          className="footer-click email-2"
+          href="mailto:info@emeraldaresort.com"
+        />
+
+        <a
+          className="footer-click phone"
+          href="tel:+842293658333"
+        />
+
+        {/* Điều khoản */}
+        <button
+          className="footer-click ticket-policy"
+          onClick={() => alert("Chính sách vé: Vé đã đặt vui lòng kiểm tra kỹ thông tin trước khi thanh toán.")}
+        />
+
+        <button
+          className="footer-click privacy-policy"
+          onClick={() => alert("Chính sách bảo mật đang được cập nhật.")}
+        />
+
+        <button
+          className="footer-click visit-rule"
+          onClick={() => alert("Quy định tham quan: Giữ gìn không gian triển lãm, không chạm vào hiện vật khi chưa được cho phép.")}
+        />
+      </footer>
     </>
   );
 }
